@@ -48,7 +48,7 @@ Visit: [http://localhost:5000](http://localhost:5000)
 
 
 ## 📁 Folder Structure
-
+```
 sql_dashboard/
 ├── app.py
 ├── db_config.py
@@ -60,7 +60,7 @@ sql_dashboard/
 ├── requirements.txt
 └── CompanyDB.sql            #sampledata
 └── README.md
-
+```
 
 ## ⚠️ Warning
 Never commit real credentials to GitHub. Use `.env` and add it to `.gitignore`.+
