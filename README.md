@@ -34,12 +34,6 @@ DB_PASSWORD=YourPassword123
 git clone https://github.com/Marvel-Spiderman/Celebal-internship--project.git
 ```
 
-### 2. Create a Virtual Environment (Optional but Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
-
 ### 3. Install Required Packages
 ```bash
 pip install -r requirements.txt
@@ -55,7 +49,6 @@ Visit: [http://localhost:5000](http://localhost:5000)
 
 ## 📁 Folder Structure
 
-```
 sql_dashboard/
 ├── app.py
 ├── db_config.py
@@ -73,12 +66,12 @@ sql_dashboard/
 Never commit real credentials to GitHub. Use `.env` and add it to `.gitignore`.+
 
 ---
-## ![Screenshot](image/csi_banner.png)
+  ## ![Screenshot](image/csi_banner.png)
 🙏 Thank You Note
-Big thanks to Celebal Technologies for the incredible internship experience! 🙌
-As a Data Engineer Intern, I learned the basics of Python, SQL, and data engineering.
+Big thanks to **Celebal Technologies** for the incredible internship experience! 🙌
+As a **Data Engineer Intern**, I learned the basics of Python, SQL, and data engineering.
 This project is a culmination of my learning experience and I'm grateful for the opportunity to contribute in the techsociety.
 My project — SQL Server Dashboard (Python + Flask) — helped me build real-world skills and was a great learning journey. 💻📊
 Grateful for the support and opportunity — excited to apply what I’ve learned! 🚀
 
-Made with ❤️ by Rounit Raj
+Made with ❤️ by **Rounit Raj**
