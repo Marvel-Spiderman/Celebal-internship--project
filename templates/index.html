@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Server Database Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .top-bar img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .banner-bottom {
+      margin: 30px auto 0;
+      max-width: 720px;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .connect-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      
+    }
+
+    .connect-row img {
+      height: 80px;
+      max-width: 140px;
+    
+    }
+
+    h2 {
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="{{ url_for('static', filename='celebal_logo.png') }}" alt="Celebal Logo">
+    <h1>SQL Server Database Manager</h1>
+  </div>
+
+  <p class="subtitle" style="text-align: center;">Professional interface for managing your CompanyDB database. Connect to view and manage employee data.</p>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Database Connection</h3>
+      <span id="status" class="badge disconnected">Disconnected</span>
+    </div>
+         <div class="connect-row">
+            <div class="connect-row" style="display: flex; align-items: center; justify-content: center; gap: 200px; flex-wrap: wrap;">
+  <div style="font-size: 18px;">
+    <p><strong>Server:</strong> xxx.xxx.x.xx &nbsp;|&nbsp; <strong>Database:</strong> CompanyDB</p>
+    <p><strong>Username:</strong> YourUsername &nbsp;|&nbsp; <strong>Table:</strong> Employees</p>
+  </div>
+  <img src="{{ url_for('static', filename='csi_gif.gif') }}" alt="Celebal Internship GIF" style="height: 120px; max-width: 150px; border-radius: 8px;">
+</div>
+    </div>
+    <div class="connect-row">
+      <button id="connectBtn" onclick="toggleConnection()">Connect to Database</button>
+    </div>
+  </div>
+
+  <div class="container" id="data-container" style="display:none;">
+    <h2>👨‍💼 Employee Data</h2>
+    <input type="text" id="searchBox" placeholder="🔍 Search employees..." onkeyup="searchTable()" />
+    <div id="data-table"></div>
+
+    <!-- Banner below table -->
+    <img class="banner-bottom" src="{{ url_for('static', filename='csi_banner.png') }}" alt="Celebal Summer Internship Banner">
+  </div>
+
+  <script>
+    let isConnected = false;
+
+    function toggleConnection() {
+      if (!isConnected) {
+        connectToDB();
+      } else {
+        disconnectFromDB();
+      }
+    }
+
+    function connectToDB() {
+      fetch('/api/employees')
+        .then(res => res.json())
+        .then(data => {
+          isConnected = true;
+          document.getElementById("status").innerText = "Connected";
+          document.getElementById("status").className = "badge connected";
+          document.getElementById("connectBtn").innerText = "Disconnect";
+          document.getElementById("data-container").style.display = "block";
+
+          const headers = ["ID", "Name", "Email", "Department", "Position", "Hire Date", "Salary"];
+          let table = "<table><thead><tr>";
+          headers.forEach(h => {
+            table += `<th>${h}</th>`;
+          });
+          table += "</tr></thead><tbody>";
+
+          data.forEach(row => {
+            table += `
+              <tr>
+                <td>${row.id}</td>
+                <td>${row.name}</td>
+                <td>${row.email}</td>
+                <td><span class="badge dept">${row.department}</span></td>
+                <td>${row.position}</td>
+                <td>${row.hire_date}</td>
+                <td><strong>$${parseInt(row.salary).toLocaleString()}</strong></td>
+              </tr>`;
+          });
+
+          table += "</tbody></table>";
+          document.getElementById("data-table").innerHTML = table;
+        })
+        .catch(() => alert("Failed to connect to the database."));
+    }
+
+    function disconnectFromDB() {
+      isConnected = false;
+      document.getElementById("status").innerText = "Disconnected";
+      document.getElementById("status").className = "badge disconnected";
+      document.getElementById("connectBtn").innerText = "Connect to Database";
+      document.getElementById("data-table").innerHTML = "";
+      document.getElementById("searchBox").value = "";
+      document.getElementById("data-container").style.display = "none";
+    }
+
+    function searchTable() {
+      const input = document.getElementById("searchBox").value.toLowerCase();
+      const rows = document.querySelectorAll("tbody tr");
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
