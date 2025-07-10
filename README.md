@@ -1,5 +1,5 @@
 ## ![Screenshot](image/celebal_logo.png)
-# SQL Server Dashboard (Python + Flask)
+#  Remote SQL Server Data Retrieval with Python
 
 This project is a full-stack web dashboard that connects to a remote SQL Server database and displays employee data in a clean, styled frontend interface.
 ## ![Screenshot](image/csi_gif.gif)
