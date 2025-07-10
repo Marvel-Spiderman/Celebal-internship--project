@@ -27,11 +27,27 @@ DB_PASSWORD=YourPassword123
 ```
 
 ## 📦 Installation
+## Installation
 
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+
+### 2. Create a Virtual Environment (Optional but Recommended)
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
+
+### 3. Install Required Packages
 ```bash
 pip install -r requirements.txt
-python app.py
 ```
+
+```bash
+
 
 Visit: [http://localhost:5000](http://localhost:5000)
 ![Screenshot](image/dasboard2.png)
