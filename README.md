@@ -31,8 +31,7 @@ DB_PASSWORD=YourPassword123
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/Marvel-Spiderman/Celebal-internship--project.git
 ```
 
 ### 2. Create a Virtual Environment (Optional but Recommended)
@@ -46,12 +45,10 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 ```
 
-```bash
-
 
 Visit: [http://localhost:5000](http://localhost:5000)
 ![Screenshot](image/dasboard2.png)
-![Screenshot](image/dasboard.png)
+![Screenshot](image/dashboard.png)
 
 
 
@@ -70,7 +67,7 @@ sql_dashboard/
 ├── requirements.txt
 └── CompanyDB.sql            #sampledata
 └── README.md
-```
+
 
 ## ⚠️ Warning
 Never commit real credentials to GitHub. Use `.env` and add it to `.gitignore`.+
