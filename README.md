@@ -68,9 +68,10 @@ Never commit real credentials to GitHub. Use `.env` and add it to `.gitignore`.+
 ---
   ## ![Screenshot](image/csi_banner.png)
 🙏 Thank You Note
+
 Big thanks to **Celebal Technologies** for the incredible internship experience! 🙌
 As a **Data Engineer Intern**, I learned the basics of Python, SQL, and data engineering.
-This project is a culmination of my learning experience and I'm grateful for the opportunity to contribute in the techsociety.
+This project is a culmination of my learning experience and I'm grateful for the opportunity to contribute in the tech society.
 My project — SQL Server Dashboard (Python + Flask) — helped me build real-world skills and was a great learning journey. 💻📊
 Grateful for the support and opportunity — excited to apply what I’ve learned! 🚀
 
