@@ -31,7 +31,7 @@ DB_PASSWORD=YourPassword123
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Marvel-Spiderman/Celebal-internship--project.git
+git clone https://github.com/Marvel-Spiderman/Remote-SQL-Server-Data-Retrieval-with-Python.git
 ```
 
 ### 3. Install Required Packages
